@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single Page App</title>
-    <link rel="stylesheet" href="/static/css/index.css">
-</head>
-<body>
-    <nav class="nav">
-        <a href="/" class="nav__link" data-link>Dashboard</a>
-        <a href="/posts" class="nav__link" data-link>Posts</a>
-        <a href="/settings" class="nav__link" data-link>Settings</a>
-    </nav>
-    <div id="app"></div>
-    <script type="module" src="/static/js/index.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP Canvas Sandbox</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="blocker">
+      <h1>SITE NON SUPPORTE</h1>
+      <p>
+        Les développeurs ont laissé un mémo : Ouvrir seulement avec une
+        résolution de 1920*1080
+      </p>
+    </div>
+    <div id="container">
+      <nav>
+        <button id="move1">Noix de coco n°1</button>
+        <button id="move2">Soleil n°2</button>
+        <button id="move3">Tronc d'arbre n°3</button>
+        <button id="move4">Rocher plage n°4</button>
+      </nav>
+      <div id="square"></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/gsap/gsap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
