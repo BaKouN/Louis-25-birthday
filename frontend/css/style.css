@@ -16,9 +16,10 @@
   position: absolute;
   width: 50px;
   height: 50px;
-  top: calc(50vh - 25px);
-  left: calc(50vw - 25px);
+  top: calc(50vh - 50px);
+  left: calc(50vw - 50px);
   border: 5px solid white;
+  box-sizing: border-box;
 }
 
 nav {
