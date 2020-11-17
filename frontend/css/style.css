@@ -3,23 +3,32 @@
 }
 
 #container {
-  background-image: url("../assets/background.jpg");
+  background-image: url("../assets/wireframeV2.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: 10% 10%;
   width: 100vw;
   height: 100vh;
   position: relative;
 }
 
-#square {
+#accueil,
+#step1Elt,
+#step2Elt {
   position: absolute;
-  width: 50px;
-  height: 50px;
-  top: calc(50vh - 50px);
-  left: calc(50vw - 50px);
-  border: 5px solid white;
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  left: -50px;
+  border: 5px solid coral;
   box-sizing: border-box;
+}
+
+#step1Elt {
+  border: 5px solid aquamarine;
+}
+
+#step2Elt {
+  border: 5px solid red;
 }
 
 nav {
@@ -28,6 +37,8 @@ nav {
   justify-content: center;
   align-items: baseline;
 }
+
+/* Media Queries */
 
 @media (max-width: 1500px) {
   #blocker {

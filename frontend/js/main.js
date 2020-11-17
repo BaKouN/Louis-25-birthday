@@ -1,57 +1,199 @@
-const squareCenter = {
-  height: $("#square").width() / 2,
-  width: $("#square").width() / 2,
+const step1EltCenter = {
+  height: $("#step1Elt").width() / 2,
+  width: $("#step1Elt").width() / 2,
 };
-const wToRemove = $(window).width() / 2 - squareCenter.width;
-const hToRemove = $(window).height() / 2 - squareCenter.height;
+let wToRemove = $(window).width() / 2 - step1EltCenter.width;
+let hToRemove = $(window).height() / 2 - step1EltCenter.height;
 
-$("#move1").click(() => {
-  // x: 3330 , y : 1600
-  const xStep1 = 3281;
-  const yStep1 = 1717;
+$(window).resize(() => {
+  wToRemove = $(window).width() / 2 - step1EltCenter.width;
+  hToRemove = $(window).height() / 2 - step1EltCenter.height;
+});
+
+const accueil = {
+  elt: "#accueil",
+  xPos: 2380,
+  yPos: 4215,
+};
+
+const step1 = {
+  elt: "#step1Elt",
+  xPos: 4710,
+  yPos: 4170,
+};
+
+const step2 = {
+  elt: "#step2Elt",
+  xPos: 4400,
+  yPos: 1950,
+};
+
+const step3 = {
+  elt: "#step3Elt",
+  xPos: 2845,
+  yPos: 1969,
+};
+
+const step4 = {
+  elt: "#step4Elt",
+  xPos: 6289,
+  yPos: 3125,
+};
+
+const step5 = {
+  elt: "#step5Elt",
+  xPos: 7709,
+  yPos: 2061,
+};
+
+const step6 = {
+  elt: "#step6Elt",
+  xPos: 8189,
+  yPos: 4249,
+};
+
+const centerAnimation = {
+  duration: 2,
+  x: `${wToRemove}px`,
+  y: `${hToRemove}px`,
+};
+
+function moveElements(source, objects) {
+  gsap.to(source.elt, centerAnimation);
+  objects.forEach((object) => {
+    gsap.to(object.elt, {
+      duration: 2,
+      x: `${wToRemove + object.xPos - source.xPos}px`,
+      y: `${hToRemove + object.yPos - source.yPos}px`,
+    });
+  });
+}
+
+// ! With BackgroundPosition : minus (-) ToRemove ! With x & y : plus (+) ToRemove
+// set starting position to start
+gsap.set("#container", {
+  backgroundPosition: `-${accueil.xPos - wToRemove}px -${
+    accueil.yPos - hToRemove
+  }px`,
+});
+gsap.set("#accueil", {
+  x: `${wToRemove}px`,
+  y: `${hToRemove}px`,
+});
+gsap.set("#step1Elt", {
+  x: `${wToRemove + (step1.xPos - accueil.xPos)}px`,
+  y: `${hToRemove + (step1.yPos - accueil.yPos)}px`,
+});
+gsap.set("#step2Elt", {
+  x: `${wToRemove + (step2.xPos - accueil.xPos)}px`,
+  y: `${hToRemove + (step2.yPos - accueil.yPos)}px`,
+});
+
+$("#start").click(() => {
+  // Move bgPosition to the center of new element
   gsap.to("#container", {
     duration: 2,
-    backgroundPosition: `-${xStep1 - wToRemove}px -${yStep1 - hToRemove}px`,
+    backgroundPosition: `-${accueil.xPos - wToRemove}px -${
+      accueil.yPos - hToRemove
+    }px`,
+  });
+  gsap.to("#accueil", {
+    duration: 2,
+    x: `${wToRemove}px`,
+    y: `${hToRemove}px`,
+  });
+  gsap.to("#step1Elt", {
+    duration: 2,
+    x: `${wToRemove + step1.xPos - accueil.xPos}px`,
+    y: `${hToRemove + step1.yPos - accueil.yPos}px`,
+  });
+  gsap.to("#step2Elt", {
+    duration: 2,
+    x: `${wToRemove + step2.xPos - accueil.xPos}px`,
+    y: `${hToRemove + step2.yPos - accueil.yPos}px`,
   });
 });
 
-$("#move2").click(() => {
-  // x: 4900 , y : 2400
-  const xStep2 = 4885;
-  const yStep2 = 2321;
+$("#step1").click(() => {
   gsap.to("#container", {
     duration: 2,
-    backgroundPosition: `-${xStep2 - wToRemove}px -${yStep2 - hToRemove}px`,
+    backgroundPosition: `-${step1.xPos - wToRemove}px -${
+      step1.yPos - hToRemove
+    }px`,
+  });
+  gsap.to("#step1Elt", {
+    duration: 2,
+    x: `${wToRemove}px`,
+    y: `${hToRemove}px`,
+  });
+  gsap.to("#accueil", {
+    duration: 2,
+    x: `${wToRemove + accueil.xPos - step1.xPos}px`,
+    y: `${hToRemove + accueil.yPos - step1.yPos}px`,
+  });
+  gsap.to("#step2Elt", {
+    duration: 2,
+    x: `${wToRemove + step2.xPos - step1.xPos}px`,
+    y: `${hToRemove + step2.yPos - step1.yPos}px`,
   });
 });
 
-$("#move3").click(() => {
-  // x: 965, y: 3700
-  const xStep3 = 757;
-  const yStep3 = 3707;
+$("#step2").click(() => {
   gsap.to("#container", {
     duration: 2,
-    backgroundPosition: `-${xStep3 - wToRemove}px -${yStep3 - hToRemove}px`,
+    backgroundPosition: `-${step2.xPos - wToRemove}px -${
+      step2.yPos - hToRemove
+    }px`,
+  });
+  gsap.to("#step2Elt", {
+    duration: 2,
+    x: `${wToRemove}px`,
+    y: `${hToRemove}px`,
+  });
+  gsap.to("#step1Elt", {
+    duration: 2,
+    x: `${wToRemove + step1.xPos - step2.xPos}px`,
+    y: `${hToRemove + step1.yPos - step2.yPos}px`,
+  });
+  gsap.to("#accueil", {
+    duration: 2,
+    x: `${wToRemove + accueil.xPos - step2.xPos}px`,
+    y: `${hToRemove + accueil.yPos - step2.yPos}px`,
   });
 });
 
-$("#move4").click(() => {
-  // x:7100, y: 3900
-  const xStep4 = 6630;
-  const yStep4 = 3425;
+$("#step3").click(() => {
   gsap.to("#container", {
     duration: 2,
-    backgroundPosition: `-${xStep4 - wToRemove}px -${yStep4 - hToRemove}px`,
+    backgroundPosition: `-${step3.xPos - wToRemove}px -${
+      step3.yPos - hToRemove
+    }px`,
   });
 });
 
-$("#move5").click(() => {
-  const xStep5 = 1939;
-  const yStep5 = 2495;
+$("#step4").click(() => {
   gsap.to("#container", {
     duration: 2,
-    backgroundPosition: `-${xStep5 - wToRemove}px -${yStep5 - hToRemove}px`,
+    backgroundPosition: `-${step4.xPos - wToRemove}px -${
+      step4.yPos - hToRemove
+    }px`,
   });
 });
 
-// 1769 2417
+$("#step5").click(() => {
+  gsap.to("#container", {
+    duration: 2,
+    backgroundPosition: `-${step5.xPos - wToRemove}px -${
+      step5.yPos - hToRemove
+    }px`,
+  });
+});
+
+$("#step6").click(() => {
+  gsap.to("#container", {
+    duration: 2,
+    backgroundPosition: `-${step6.xPos - wToRemove}px -${
+      step6.yPos - hToRemove
+    }px`,
+  });
+});
