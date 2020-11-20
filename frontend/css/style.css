@@ -3,44 +3,93 @@
 }
 
 #container {
-  background-image: url("../assets/wireframeV2.png");
+  background-image: url('../assets/wireframeV2.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   width: 100vw;
   height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 
-#accueil,
-#step1Elt,
-#step2Elt {
+.box {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  top: -50px;
-  left: -50px;
-  border: 5px solid coral;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#accueil {
+  border: 5px solid #70d6ff;
+  width: 200px;
+  height: 200px;
+  top: -100px;
+  left: -100px;
+  background: white;
 }
 
 #step1Elt {
-  border: 5px solid aquamarine;
+  border: 5px solid #ff2e00;
+  width: 706px;
+  height: 850px;
+  left: calc(-706px / 2);
+  top: calc(-850px / 2);
 }
 
 #step2Elt {
-  border: 5px solid red;
+  border: 5px solid #ff9770;
+  width: 754px;
+  height: 530px;
+  left: calc(-754px / 2);
+  top: calc(-530px / 2);
+}
+
+#step3Elt {
+  border: 5px solid #08a045;
+  width: 650px;
+  height: 578px;
+  left: calc(-650px / 2);
+  top: calc(-578px / 2);
+}
+
+#step4Elt {
+  border: 5px solid #d34db1;
+  width: 962px;
+  height: 658px;
+  left: calc(-962px / 2);
+  top: calc(-658px / 2);
+}
+
+#step5Elt {
+  border: 5px solid #600fe4;
+  width: 602px;
+  height: 538px;
+  left: calc(-602px / 2);
+  top: calc(-538px / 2);
+}
+
+#step6Elt {
+  border: 5px solid #3c896d;
+  width: 1466px;
+  height: 714px;
+  left: calc(-1466px / 2);
+  top: calc(-714px / 2);
 }
 
 nav {
+  position: absolute;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: baseline;
+  z-index: 1;
 }
 
 /* Media Queries */
 
-@media (max-width: 1500px) {
+/* @media (max-width: 1500px) {
   #blocker {
     display: block;
     width: 100vw;
@@ -56,9 +105,9 @@ nav {
   .container {
     display: none;
   }
-}
+} */
 
-@media (min-width: 2100px) {
+/* @media (min-width: 2100px) {
   #blocker {
     display: block;
     width: 100vw;
@@ -74,4 +123,4 @@ nav {
   .container {
     display: none;
   }
-}
+} */
