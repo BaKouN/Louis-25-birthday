@@ -293,8 +293,7 @@ $(step2.btnElt).click(() => {
 });
 
 $(step3.btnElt).click(() => {
-  moveElements({ xPos: 2868, yPos: 1500 }, animationDuration - hookDuration);
-  moveElements(step3, hookDuration, animationDuration - hookDuration);
+  moveElements(step3, animationDuration);
   stateMachine = step3;
 });
 
