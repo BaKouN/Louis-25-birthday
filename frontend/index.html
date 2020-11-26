@@ -6,16 +6,14 @@
     <title>GSAP Canvas Sandbox</title>
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/sudoku.css" />
   </head>
   <body>
-    <div id="blocker">
-      <h1>SITE NON SUPPORTE</h1>
-      <p>
-        Les développeurs ont laissé un mémo : Ouvrir seulement avec une
-        résolution de 1920*1080
-      </p>
+    <div id="loading">
+      <h1>PRESS [ENTER]</h1>
     </div>
     <div id="container">
+      <canvas id="noise" class="noise"></canvas>
       <nav>
         <button id="start">Accueil</button>
         <button id="step1">Step 1</button>
@@ -25,17 +23,121 @@
         <button id="step5">Step 5</button>
         <button id="step6">Step 6</button>
       </nav>
-      <div id="accueil" class="box"><h1>Imagine</h1></div>
+      <div id="accueil" class="box">
+        <p class="cursor" id="accueil-logs1"></p>
+        <p class="cursor" id="accueil-logs2"></p>
+        <p class="cursor" id="accueil-logs3"></p>
+        <p class="cursor" id="accueil-title"></p>
+        <p class="cursor" id="accueil-question"></p>
+        <input type="text" name="accueil-answer-input" id="accueil-answer-input">
+      </div>
       <div id="step1Elt" class="box"><h1>Ca</h1></div>
       <div id="step2Elt" class="box"><h1>Marche</h1></div>
-      <div id="step3Elt" class="box"><h1>Nan</h1></div>
+      <div id="step3Elt" class="box">
+        <div>
+          <button id="citation1">Citation 1</button>
+          <div id="citation1Wave"></div>
+          <input type="text" placeholder="Merlin" />
+        </div>
+      </div>
       <div id="step4Elt" class="box"><h1>J'Déconne</h1></div>
       <div id="step5Elt" class="box"><h1>Mais...</h1></div>
-      <div id="step6Elt" class="box"><h1>Imagine quand même</h1></div>
+      <div id="step6Elt" class="box">
+        <ul class="sudoku cf">
+          <input type="text" class="q1" maxlength="1"/>
+          <input type="text" class="q1" maxlength="1" value="4" readonly />
+          <input type="text" class="q1" maxlength="1" />
+          <input type="text" class="q2" maxlength="1" />
+          <input type="text" class="q2" maxlength="1" value="8" readonly />
+          <input type="text" class="q2" maxlength="1" />
+          <input type="text" class="q3" maxlength="1" />
+          <input type="text" class="q3" maxlength="1" value="9" readonly/>
+          <input type="text" class="q3" maxlength="1" />
+          <input type="text" class="q1" maxlength="1" value="8" readonly/>
+          <input type="text" class="q1" maxlength="1" value="5" readonly />
+          <input type="text" class="q1" maxlength="1" />
+          <input type="text" class="q2" maxlength="1" />
+          <input type="text" class="q2" maxlength="1" value="1" readonly/>
+          <input type="text" class="q2" maxlength="1" />
+          <input type="text" class="q3" maxlength="1" />
+          <input type="text" class="q3" maxlength="1" />
+          <input type="text" class="q3" maxlength="1" value="6" readonly/>
+          <input type="text" class="q1" maxlength="1" />
+          <input type="text" class="q1" maxlength="1" />
+          <input type="text" class="q1" maxlength="1" />
+          <input type="text" class="q2" maxlength="1" />
+          <input type="text" class="q2" maxlength="1" />
+          <input type="text" class="q2" maxlength="1" />
+          <input type="text" class="q3" maxlength="1" value="7" readonly/>
+          <input type="text" class="q3" maxlength="1" />
+          <input type="text" class="q3" maxlength="1" />
+          <input type="text" class="q4" maxlength="1" value="5" readonly/>
+          <input type="text" class="q4" maxlength="1" />
+          <input type="text" class="q4" maxlength="1" />
+          <input type="text" class="q5" maxlength="1" value="1" readonly/>
+          <input type="text" class="q5" maxlength="1" />
+          <input type="text" class="q5" maxlength="1" />
+          <input type="text" class="q6" maxlength="1" />
+          <input type="text" class="q6" maxlength="1" value="7" readonly/>
+          <input type="text" class="q6" maxlength="1" value="3" readonly/>
+          <input type="text" class="q4" maxlength="1" />
+          <input type="text" class="q4" maxlength="1" />
+          <input type="text" class="q4" maxlength="1" value="3" readonly/>
+          <input type="text" class="q5" maxlength="1" />
+          <input type="text" class="q5" maxlength="1" value="5" readonly/>
+          <input type="text" class="q5" maxlength="1" />
+          <input type="text" class="q6" maxlength="1" value="2" readonly/>
+          <input type="text" class="q6" maxlength="1" />
+          <input type="text" class="q6" maxlength="1" />
+          <input type="text" class="q4" maxlength="1" />
+          <input type="text" class="q4" maxlength="1" value="1" readonly/>
+          <input type="text" class="q4" maxlength="1" />
+          <input type="text" class="q5" maxlength="1" />
+          <input type="text" class="q5" maxlength="1" />
+          <input type="text" class="q5" maxlength="1" value="7" readonly/>
+          <input type="text" class="q6" maxlength="1" />
+          <input type="text" class="q6" maxlength="1" />
+          <input type="text" class="q6" maxlength="1" value="5" readonly/>
+          <input type="text" class="q7" maxlength="1" />
+          <input type="text" class="q7" maxlength="1" />
+          <input type="text" class="q7" maxlength="1" />
+          <input type="text" class="q8" maxlength="1" value="3" readonly/>
+          <input type="text" class="q8" maxlength="1" />
+          <input type="text" class="q8" maxlength="1" value="2" readonly/>
+          <input type="text" class="q9" maxlength="1" />
+          <input type="text" class="q9" maxlength="1" />
+          <input type="text" class="q9" maxlength="1" />
+          <input type="text" class="q7" maxlength="1" value="7" readonly/>
+          <input type="text" class="q7" maxlength="1" />
+          <input type="text" class="q7" maxlength="1" />
+          <input type="text" class="q8" maxlength="1" />
+          <input type="text" class="q8" maxlength="1" />
+          <input type="text" class="q8" maxlength="1" />
+          <input type="text" class="q9" maxlength="1" />
+          <input type="text" class="q9" maxlength="1" />
+          <input type="text" class="q9" maxlength="1" />
+          <input type="text" class="q7" maxlength="1" />
+          <input type="text" class="q7" maxlength="1" />
+          <input type="text" class="q7" maxlength="1" />
+          <input type="text" class="q8" maxlength="1" value="2" readonly/>
+          <input type="text" class="q8" maxlength="1" value="8" readonly/>
+          <input type="text" class="q8" maxlength="1" />
+          <input type="text" class="q9" maxlength="1" />
+          <input type="text" class="q9" maxlength="1" value="1" readonly/>
+          <input type="text" class="q9" maxlength="1" value="9" readonly/>
+        </ul>
+        </div>
+      </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/wavesurfer.js"></script>
     <script src="js/gsap/gsap.min.js"></script>
+    <script src="js/gsap/ScrambleTextPlugin.min.js"></script>
+    <script src="js/sudoku.js"></script>
+    <script src="js/citationsFilm.js"></script>
+    <script src="js/noise.js"></script>
+    <script src="js/acceuil.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
