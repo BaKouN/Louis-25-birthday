@@ -66,8 +66,7 @@
   left: -40%;
 }
 
-#accueil p,
-#accueil input {
+#accueil p {
   font-family: 'lcd', sans-serif;
   color: whitesmoke;
   position: relative;
@@ -80,6 +79,18 @@
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
   margin: 10px;
+}
+
+#accueil div,
+#accueil input {
+  width: 80%;
+  font-size: 130%;
+  font-family: 'lcd', sans-serif;
+  color: whitesmoke;
+  white-space: nowrap;
+  text-align: start;
+  margin: 10px;
+  margin-top: auto;
 }
 
 #accueil input,
