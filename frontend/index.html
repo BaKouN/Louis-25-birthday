@@ -4,11 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GSAP Canvas Sandbox</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/a496bed872.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/sudoku.css" />
+    <link rel="stylesheet" href="css/crossword.css">
+    <link rel="stylesheet" href="css/citationsFilm.css">
   </head>
   <body>
+    <div id="creditSong" style="display:none;"></div>
     <div id="loading">
       <h1>PRESS [ENTER]</h1>
     </div>
@@ -29,27 +35,49 @@
         <p class="cursor" id="accueil-logs3"></p>
         <p class="cursor" id="accueil-title"></p>
         <p class="cursor" id="accueil-question"></p>
-        <div>><input type="text" name="accueil-answer-input" id="accueil-answer-input"></div>
+        <p id="accueil-feedback"></p>
+        <div>><input type="text" name="accueil-answer-input" id="accueil-answer-input" disabled spellcheck="false" autocomplete="false"></div>
       </div>
-      <div id="step1Elt" class="box"><h1>Ca</h1></div>
-      <div id="step2Elt" class="box"><h1>Marche</h1></div>
-      <div id="step3Elt" class="box">
-        <div>
-          <button id="citation1">Citation 1</button>
-          <div id="citation1Wave"></div>
-          <input type="text" placeholder="Merlin" />
+      <div id="step1Elt" class="box">
+        <div class="crossword"></div>
+        <div class="crossword-clues"></div>
+        <div class="crossword-hint">
+          Il semblerait que le mot de passe soit composé de la premiere lettre de chaque mot </br>
+          Ou alors c'est la derniere ...
+        </div>
+        <div class="crossword-answer">
+          <p>MDP?</p>
+          <input type="text" id="crossword-answer-input" spellcheck="false">
         </div>
       </div>
-      <div id="step4Elt" class="box"><h1>J'Déconne</h1></div>
-      <div id="step5Elt" class="box"><h1>Mais...</h1></div>
+      <div id="step3Elt" class="box">
+        <div class="citation-container">
+          <div class="citation1">
+            <i class="fas fa-play"></i>
+            <div id="citation1-wave"></div>
+            <input type="text" id="citation1-answer-input" placeholder="From ?"/>
+          </div>
+          <div class="citation2">
+            <i class="fas fa-play"></i>
+            <div id="citation2-wave"></div>
+            <input type="text" id="citation2-answer-input" placeholder="???"/>
+          </div>
+          <div class="citation3">
+            <i class="fas fa-play"></i>
+            <div id="citation3-wave"></div>
+            <input type="text" id="citation3-answer-input" placeholder="C'est un film ça ?"/>
+          </div>
+        </div>
+
+      </div>
       <div id="step6Elt" class="box">
         <ul class="sudoku cf">
-          <input type="text" class="q1" maxlength="1"/>
+          <input type="text" class="q1 gps-3-1" maxlength="1"/>
           <input type="text" class="q1" maxlength="1" value="4" readonly />
           <input type="text" class="q1" maxlength="1" />
           <input type="text" class="q2" maxlength="1" />
           <input type="text" class="q2" maxlength="1" value="8" readonly />
-          <input type="text" class="q2" maxlength="1" />
+          <input type="text" class="q2 gps-5-1" maxlength="1"/>
           <input type="text" class="q3" maxlength="1" />
           <input type="text" class="q3" maxlength="1" value="9" readonly/>
           <input type="text" class="q3" maxlength="1" />
@@ -60,7 +88,7 @@
           <input type="text" class="q2" maxlength="1" value="1" readonly/>
           <input type="text" class="q2" maxlength="1" />
           <input type="text" class="q3" maxlength="1" />
-          <input type="text" class="q3" maxlength="1" />
+          <input type="text" class="q3 gps-3-2" maxlength="1"/>
           <input type="text" class="q3" maxlength="1" value="6" readonly/>
           <input type="text" class="q1" maxlength="1" />
           <input type="text" class="q1" maxlength="1" />
@@ -72,11 +100,11 @@
           <input type="text" class="q3" maxlength="1" />
           <input type="text" class="q3" maxlength="1" />
           <input type="text" class="q4" maxlength="1" value="5" readonly/>
-          <input type="text" class="q4" maxlength="1" />
+          <input type="text" class="q4 gps-8-1" maxlength="1"/>
           <input type="text" class="q4" maxlength="1" />
           <input type="text" class="q5" maxlength="1" value="1" readonly/>
           <input type="text" class="q5" maxlength="1" />
-          <input type="text" class="q5" maxlength="1" />
+          <input type="text" class="q5 gps-4-1" maxlength="1"/>
           <input type="text" class="q6" maxlength="1" />
           <input type="text" class="q6" maxlength="1" value="7" readonly/>
           <input type="text" class="q6" maxlength="1" value="3" readonly/>
@@ -87,7 +115,7 @@
           <input type="text" class="q5" maxlength="1" value="5" readonly/>
           <input type="text" class="q5" maxlength="1" />
           <input type="text" class="q6" maxlength="1" value="2" readonly/>
-          <input type="text" class="q6" maxlength="1" />
+          <input type="text" class="q6 gps-4-2" maxlength="1"/>
           <input type="text" class="q6" maxlength="1" />
           <input type="text" class="q4" maxlength="1" />
           <input type="text" class="q4" maxlength="1" value="1" readonly/>
@@ -100,16 +128,16 @@
           <input type="text" class="q6" maxlength="1" value="5" readonly/>
           <input type="text" class="q7" maxlength="1" />
           <input type="text" class="q7" maxlength="1" />
-          <input type="text" class="q7" maxlength="1" />
+          <input type="text" class="q7 gps-5-2" maxlength="1"/>
           <input type="text" class="q8" maxlength="1" value="3" readonly/>
           <input type="text" class="q8" maxlength="1" />
           <input type="text" class="q8" maxlength="1" value="2" readonly/>
           <input type="text" class="q9" maxlength="1" />
-          <input type="text" class="q9" maxlength="1" />
+          <input type="text" class="q9 gps-6-1" maxlength="1"/>
           <input type="text" class="q9" maxlength="1" />
           <input type="text" class="q7" maxlength="1" value="7" readonly/>
           <input type="text" class="q7" maxlength="1" />
-          <input type="text" class="q7" maxlength="1" />
+          <input type="text" class="q7 gps-8-2" maxlength="1"/>
           <input type="text" class="q8" maxlength="1" />
           <input type="text" class="q8" maxlength="1" />
           <input type="text" class="q8" maxlength="1" />
@@ -118,26 +146,51 @@
           <input type="text" class="q9" maxlength="1" />
           <input type="text" class="q7" maxlength="1" />
           <input type="text" class="q7" maxlength="1" />
-          <input type="text" class="q7" maxlength="1" />
-          <input type="text" class="q8" maxlength="1" value="2" readonly/>
+          <input type="text" class="q7" maxlength="1" value="2" readonly/>
           <input type="text" class="q8" maxlength="1" value="8" readonly/>
+          <input type="text" class="q8" maxlength="1"/>
           <input type="text" class="q8" maxlength="1" />
           <input type="text" class="q9" maxlength="1" />
           <input type="text" class="q9" maxlength="1" value="1" readonly/>
           <input type="text" class="q9" maxlength="1" value="9" readonly/>
         </ul>
+        <div class="gps-answer">
+          <div class="gps-answer-input-container">
+            <div class="gps-answer-hint">activité ??</div>
+            <div class="gps-answer-hint2">____ __ _________</div>
+            <input type="text" id="gps-answer-input"/>
+            <button id="creditBtn">Credit</button>
+          </div>
+          <div class="gps-colors">
+            <div class="gps-hint">localisation ?!</div>
+            <div class="gps-box gps-4-1"></div>
+            <div class="gps-box gps-5-1"></div>
+            <div class="gps-box">.</div>
+            <div class="gps-box gps-6-1"></div>
+            <div class="gps-box gps-3-1"></div>
+            <div class="gps-box gps-3-2"></div>
+            <div class="gps-box">,</div>
+            <div class="gps-box gps-5-2"></div>
+            <div class="gps-box">.</div>
+            <div class="gps-box gps-8-1"></div>
+            <div class="gps-box gps-8-2"></div>
+            <div class="gps-box gps-4-2"></div>
+          </div>
         </div>
       </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/wavesurfer.js"></script>
-    <script src="js/gsap/gsap.min.js"></script>
-    <script src="js/gsap/ScrambleTextPlugin.min.js"></script>
-    <script src="js/sudoku.js"></script>
-    <script src="js/citationsFilm.js"></script>
-    <script src="js/noise.js"></script>
-    <script src="js/acceuil.js"></script>
-    <script src="js/main.js"></script>
+    <script type="text/javascript" src="js/gsap/gsap.min.js"></script>
+    <script type="text/javascript" src="js/gsap/ScrambleTextPlugin.min.js"></script>
+    <script type="text/javascript" src="js/citationsFilm.js"></script>
+    <script type="text/javascript" src="js/noise.js"></script>
+    <script type="text/javascript" src="js/acceuil.js"></script>
+    <script type="text/javascript" src="js/step1.js"></script>
+    <script type="text/javascript" src="js/crossword.js"></script>
+    <script type="text/javascript" src="js/crosswordInit.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/sudoku.js"></script>
   </body>
 </html>

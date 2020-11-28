@@ -1,0 +1,161 @@
+.crossword {
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0px auto;
+}
+
+.crossword-puzzle {
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.puzzle-row {
+  display: table-row;
+}
+
+.puzzle-cell {
+  border: 1px solid black;
+  display: table-cell;
+}
+
+.puzzle-none {
+  background-color: rgba(0, 0, 0, 0.377);
+}
+
+.puzzle-input {
+  position: relative;
+}
+
+.puzzle-input input {
+  background-color: transparent;
+  border: none;
+  color: black;
+  height: 100%;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.puzzle-input input.select {
+  background-color: lightgray;
+}
+
+.puzzle-input input:focus {
+  background-color: white;
+}
+
+.puzzle-input span {
+  font-size: 0.8em;
+  left: 1px;
+  position: absolute;
+  top: 0px;
+}
+
+.crossword-clues {
+  font-family: 'Caveat', cursive;
+  font-size: large;
+  box-sizing: border-box;
+  padding: 12px 12px 0 0;
+  width: 48%;
+}
+
+.crossword-clues-across,
+.crossword-clues-down {
+  position: absolute;
+  top: 30%;
+  left: -45%;
+  color: black;
+  transform: rotate(12deg);
+  width: 265px;
+}
+
+.crossword-clues-down {
+  top: 28%;
+  left: 109%;
+  width: 265px;
+  transform: rotate(-11deg);
+}
+
+.crossword-clues-across::before {
+  content: 'last L';
+  position: absolute;
+  color: rgb(143, 0, 0);
+  font-size: 25px;
+  top: -60px;
+  left: 0px;
+  box-sizing: border-box;
+  border: 4px rgb(143, 0, 0) dotted;
+  border-radius: 50%;
+  padding: 10px 20px;
+}
+
+.crossword-clues-down::before {
+  content: 'first L';
+  position: absolute;
+  color: rgb(4, 58, 88);
+  font-size: 25px;
+  top: -70px;
+  right: 40px;
+  box-sizing: border-box;
+  border: 4px rgb(4, 58, 88) dotted;
+  border-radius: 50%;
+  padding: 10px 20px;
+}
+
+.crossword-clues h2 {
+  text-transform: capitalize;
+  display: none;
+}
+
+.crossword-clues h2:first-child {
+  margin-top: 0;
+}
+
+.crossword-clues ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.crossword-hint {
+  font-family: 'Caveat', cursive;
+  font-size: 27px;
+  box-sizing: border-box;
+  padding: 10px 10px 10px 70px;
+  width: 85%;
+  color: rgb(143, 0, 0);
+}
+
+.crossword-answer {
+  font-family: 'Caveat', cursive;
+  position: absolute;
+  bottom: 3%;
+  right: -35%;
+}
+
+.crossword-answer p {
+  font-size: 70px;
+  color: rgb(143, 0, 0);
+  line-height: 10px;
+}
+
+.crossword-answer input {
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  border-bottom: 2px solid rgb(143, 0, 0);
+  outline: none;
+  text-transform: lowercase;
+}
+
+.crossword-answer::before {
+  content: attr(data-before);
+  position: absolute;
+  top: 130px;
+  right: -80px;
+  font-size: 30px;
+  transform: rotate(20deg);
+  color: rgb(4, 58, 88);
+}

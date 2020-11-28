@@ -8,7 +8,7 @@
 }
 
 #container {
-  background-image: url('../assets/testbg.png');
+  background-image: url('../assets/designV4.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-color: #131211;
@@ -90,7 +90,23 @@
   white-space: nowrap;
   text-align: start;
   margin: 10px;
+}
+
+#accueil #accueil-feedback {
   margin-top: auto;
+  border: none;
+}
+
+.wrong-answer {
+  color: rgb(160, 0, 0);
+}
+
+.right-answer {
+  color: green;
+}
+
+.accueil-end {
+  text-align: center;
 }
 
 #accueil input,
@@ -98,18 +114,18 @@
   background: inherit;
   border: none;
   outline: none;
+  margin-top: auto;
 }
 
 #step1Elt {
-  border: 5px solid #ff2e00;
   width: 706px;
-  height: 850px;
+  height: 700px;
   left: calc(-706px / 2);
-  top: calc(-850px / 2);
+  top: calc(-700px / 2);
+  position: relative;
 }
 
 #step2Elt {
-  border: 5px solid #ff9770;
   width: 754px;
   height: 530px;
   left: calc(-754px / 2);
@@ -117,7 +133,6 @@
 }
 
 #step3Elt {
-  border: 5px solid #08a045;
   width: 650px;
   height: 578px;
   left: calc(-650px / 2);
@@ -125,7 +140,6 @@
 }
 
 #step4Elt {
-  border: 5px solid #d34db1;
   width: 962px;
   height: 658px;
   left: calc(-962px / 2);
@@ -133,7 +147,6 @@
 }
 
 #step5Elt {
-  border: 5px solid #600fe4;
   width: 602px;
   height: 538px;
   left: calc(-602px / 2);
@@ -141,13 +154,11 @@
 }
 
 #step6Elt {
-  border: 5px solid #3c896d;
-  width: 1466px;
-  height: 714px;
-  left: calc(-1466px / 2);
-  top: calc(-714px / 2);
-  flex-direction: row;
-  justify-content: space-around;
+  width: 800px;
+  height: 650px;
+  left: calc(-800px / 2);
+  top: calc(-650px / 2);
+  font-family: 'Caveat', cursive;
 }
 
 nav {

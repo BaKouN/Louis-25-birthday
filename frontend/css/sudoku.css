@@ -1,5 +1,14 @@
+#step6Elt {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .sudoku {
   width: 450px;
+  padding: 15px;
+  transform: rotate(-3.5deg);
 }
 .sudoku > input {
   float: left;
@@ -12,6 +21,123 @@
   color: gray;
   background: transparent;
 }
+
+.gps-3-1 {
+  background: #f2a599 !important;
+}
+
+.gps-5-1 {
+  background: #8e8594 !important;
+  color: white;
+}
+
+.gps-3-2 {
+  background: #566d70 !important;
+  color: white;
+}
+
+.gps-8-1 {
+  background: #595959 !important;
+  color: white;
+}
+
+.gps-4-1 {
+  background: #5cdef2 !important;
+}
+
+.gps-4-2 {
+  background: #784c46 !important;
+  color: white;
+}
+
+.gps-5-2 {
+  background: #64546e !important;
+  color: white;
+}
+
+.gps-6-1 {
+  background: #587d42 !important;
+  color: white;
+}
+
+.gps-8-2 {
+  background: #ad4a23 !important;
+  color: white;
+}
+
+.gps-colors {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.gps-box {
+  height: 25px;
+  width: 25px;
+  line-height: 10px;
+  text-align: center;
+  font-size: 50px;
+}
+
+.gps-answer {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  justify-content: space-around;
+  position: relative;
+}
+
+.gps-answer-hint {
+  position: absolute;
+  left: -80px;
+  top: -50px;
+  border: 2px dotted rgb(44, 0, 94);
+  border-radius: 50%;
+  font-size: 25px;
+  width: 180px;
+  transform: rotate(-10deg);
+  text-align: center;
+  color: rgb(44, 0, 94);
+}
+
+.gps-answer-hint2 {
+  position: absolute;
+  left: -50px;
+  bottom: -50px;
+  border: black dashed 1px;
+  padding: 5px;
+  font-size: 25px;
+  width: 180px;
+  text-align: center;
+  color: black;
+}
+
+#creditBtn {
+  display: none;
+}
+
+#gps-answer-input {
+  background: rgba(94, 94, 94, 0.322);
+  font-size: 25px;
+  border: none;
+  outline: none;
+  border-radius: 5%;
+  text-align: center;
+}
+
+.gps-hint {
+  position: absolute;
+  right: -150px;
+  top: -200px;
+  border: 2px dotted rgb(114, 4, 4);
+  border-radius: 50%;
+  font-size: 30px;
+  width: 180px;
+  transform: rotate(10deg);
+  text-align: center;
+  color: rgb(114, 4, 4);
+}
+
 .sudoku > input[value='1'] {
   color: black;
 }
