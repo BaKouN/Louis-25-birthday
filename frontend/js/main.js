@@ -85,7 +85,6 @@ const birthday = {
   xPos: 7105,
   yPos: 2850,
 };
-
 const animationDuration = 2;
 const hookDuration = 0.5;
 let wToRemove = $(window).width() / 2;
@@ -129,6 +128,7 @@ function moveElements(source, duration, delay) {
 
 // set starting position to start
 moveElements(accueil, 0);
+$('#ending').hide();
 
 $(accueil.btnElt).click(() => {
   moveElements(accueil, animationDuration);
@@ -155,3 +155,34 @@ $(window).resize(() => {
   hToRemove = $(window).height() / 2;
   moveElements(stateMachine, 0);
 });
+
+function ending() {
+  gsap.fromTo(
+    '#ending h1',
+    1.5,
+    {
+      'border-right-color': 'rgba(255,255,255,1)',
+    },
+    {
+      'border-right-color': 'rgba(255,255,255,0)',
+      'repeat': -1,
+      'ease': SteppedEase.config(1),
+    },
+    0
+  );
+  $(document).one('keypress', () => {
+    gsap.to('#loading h1', {
+      duration: 5,
+      scrambleText: {
+        text: 'Welcome Louis',
+        chars: '0123456789',
+      },
+      onComplete: () => {
+        setTimeout(() => {
+          $('#loading').hide();
+          accueilStartup();
+        }, 2000);
+      },
+    });
+  });
+}

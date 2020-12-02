@@ -10,13 +10,42 @@ $('#gps-answer-input').on('keypress', (e) => {
       $('#gps-answer-input').val('Et ouais mon pote !');
       $('#gps-answer-input').prop('disabled', true);
       setTimeout(() => {
-        $('#creditBtn').show();
-      }, 2);
+        endingAnimation();
+      }, 2000);
     } else {
       $('#gps-answer-input').val('NOPE!');
     }
   }
 });
+
+function endingAnimation() {
+  $('#ending').show();
+  gsap.fromTo(
+    '#ending h1',
+    1.5,
+    {
+      'border-right-color': 'rgba(255,255,255,1)',
+    },
+    {
+      'border-right-color': 'rgba(255,255,255,0)',
+      'repeat': -1,
+      'ease': SteppedEase.config(1),
+    },
+    0
+  );
+  gsap.to('#ending h1', {
+    duration: 5,
+    scrambleText: {
+      text: "Alors, pret a t'envoyer en l'air? ;)",
+      chars: '0123456789',
+    },
+    onComplete: () => {
+      setTimeout(() => {
+        $('#creditBtn').show();
+      }, 2000);
+    },
+  });
+}
 
 $('#creditBtn').on('click', () => {
   creditTl.play();
@@ -25,7 +54,7 @@ $('#creditBtn').on('click', () => {
 var creditSong = WaveSurfer.create({
   container: '#creditSong',
 });
-creditSong.load('./assets/audio/creditsong.mp3');
+creditSong.load('/assets/audio/creditsong.mp3');
 
 let creditTl = new TimelineMax({
   paused: true,
@@ -35,6 +64,9 @@ creditTl.to([], {
   onStart: () => {
     creditSong.play();
     moveElements(Amelia, 6);
+    setTimeout(() => {
+      $('#ending').hide();
+    }, 300);
   },
   duration: 6,
 });

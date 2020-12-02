@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GSAP Canvas Sandbox</title>
+    <title>TOP SECRET</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <script src="https://kit.fontawesome.com/a496bed872.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
@@ -18,9 +18,13 @@
     <div id="loading">
       <h1>PRESS [ENTER]</h1>
     </div>
+    <div id="ending">
+      <h1 id="ending-message"></h1>
+      <button id="creditBtn">Credit</button>
+    </div>
     <div id="container">
       <canvas id="noise" class="noise"></canvas>
-      <nav>
+      <nav style="display:none;">
         <button id="start">Accueil</button>
         <button id="step1">Step 1</button>
         <button id="step2">Step 2</button>
@@ -159,7 +163,6 @@
             <div class="gps-answer-hint">activité ??</div>
             <div class="gps-answer-hint2">____ __ _________</div>
             <input type="text" id="gps-answer-input"/>
-            <button id="creditBtn">Credit</button>
           </div>
           <div class="gps-colors">
             <div class="gps-hint">localisation ?!</div>

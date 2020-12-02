@@ -213,7 +213,7 @@ function accueilStartup() {
 $('#accueil-answer-input').on('keypress', (e) => {
   if (e.which == 13) {
     let answerRegex = new RegExp(
-      '^(?=.*\\bmasart\\b)((?=.*\\bvau\\b)|(?=.*\\blevau\\b)).*$',
+      '^(?=.*\\bmansart\\b)((?=.*\\bvau\\b)|(?=.*\\blevau\\b)).*$',
       'gmi'
     );
     if (answerRegex.test(e.target.value)) {
@@ -223,7 +223,7 @@ $('#accueil-answer-input').on('keypress', (e) => {
       setTimeout(() => {
         rightAnswerAnimation();
       }, 4);
-      moveElements(step1, animationDuration, 23);
+      moveElements(step1, animationDuration, 21);
     } else {
       $('#accueil-answer-input').val('');
       giveFeeback(false);
@@ -252,158 +252,158 @@ function giveFeeback(answerIsRight) {
 }
 
 function rightAnswerAnimation() {
-  // $('.cursor').empty();
-  // const goodAnswerTl = new TimelineMax({});
-  // // cursor animation
-  // goodAnswerTl.fromTo(
-  //   '#accueil-logs1',
-  //   {
-  //     'border-right-color': 'rgba(255,255,255,1)',
-  //   },
-  //   {
-  //     'duration': 0.75,
-  //     'border-right-color': 'rgba(255,255,255,0)',
-  //     'repeat': -1,
-  //     'ease': SteppedEase.config(1),
-  //   }
-  // );
-  // // text animation
-  // goodAnswerTl.fromTo(
-  //   '#accueil-logs1',
-  //   {
-  //     width: 0,
-  //   },
-  //   {
-  //     duration: 2,
-  //     scrambleText: {
-  //       text: "Content de voir que vous etes arrives jusqu'ici M. De Bontin",
-  //       chars: '0123456789',
-  //     },
-  //     width: $('#accueil-logs1').width(),
-  //     ease: SteppedEase.config(37),
-  //   }
-  // );
-  // // stop cursor
-  // goodAnswerTl.set('#accueil-logs1', {
-  //   delay: 2,
-  //   border: 'none',
-  // });
-  // // cursor animation
-  // goodAnswerTl.fromTo(
-  //   '#accueil-logs2',
-  //   {
-  //     'border-right-color': 'rgba(255,255,255,1)',
-  //   },
-  //   {
-  //     'duration': 0.75,
-  //     'border-right-color': 'rgba(255,255,255,0)',
-  //     'repeat': -1,
-  //     'ease': SteppedEase.config(1),
-  //   }
-  // );
-  // // text animation
-  // goodAnswerTl.fromTo(
-  //   '#accueil-logs2',
-  //   {
-  //     width: 0,
-  //   },
-  //   {
-  //     duration: 2,
-  //     scrambleText: {
-  //       text: 'Vous trouverez sur ce site les donnees cryptees',
-  //       chars: '0123456789',
-  //     },
-  //     width: $('#accueil-logs2').width(),
-  //     ease: SteppedEase.config(37),
-  //   }
-  // );
-  // // stop cursor
-  // goodAnswerTl.set('#accueil-logs2', {
-  //   delay: 2,
-  //   border: 'none',
-  // });
-  // // cursor animation
-  // goodAnswerTl.fromTo(
-  //   '#accueil-logs3',
-  //   {
-  //     'border-right-color': 'rgba(255,255,255,1)',
-  //   },
-  //   {
-  //     'duration': 0.75,
-  //     'border-right-color': 'rgba(255,255,255,0)',
-  //     'repeat': -1,
-  //     'ease': SteppedEase.config(1),
-  //   }
-  // );
-  // // text animation
-  // goodAnswerTl.fromTo(
-  //   '#accueil-logs3',
-  //   {
-  //     width: 0,
-  //   },
-  //   {
-  //     duration: 2,
-  //     scrambleText: {
-  //       text: 'La france a besoin de vous',
-  //       chars: '0123456789',
-  //     },
-  //     width: $('#accueil-logs3').width(),
-  //     ease: SteppedEase.config(37),
-  //   }
-  // );
-  // // stop cursor
-  // goodAnswerTl.set('#accueil-logs3', {
-  //   delay: 2,
-  //   border: 'none',
-  // });
-  // // cursor animation
-  // goodAnswerTl.fromTo(
-  //   '#accueil-title',
-  //   {
-  //     'border-right-color': 'rgba(255,255,255,1)',
-  //   },
-  //   {
-  //     'duration': 0.75,
-  //     'border-right-color': 'rgba(255,255,255,0)',
-  //     'repeat': -1,
-  //     'ease': SteppedEase.config(1),
-  //   }
-  // );
-  // // text animation
-  // goodAnswerTl.fromTo(
-  //   '#accueil-title',
-  //   {
-  //     width: 0,
-  //   },
-  //   {
-  //     duration: 2,
-  //     scrambleText: {
-  //       text: 'Bonne chance',
-  //       chars: '0123456789',
-  //     },
-  //     width: $('#accueil-title').width(),
-  //     ease: SteppedEase.config(37),
-  //   }
-  // );
-  // // stop cursor
-  // goodAnswerTl.set('#accueil-title', {
-  //   delay: 2,
-  //   border: 'none',
-  // });
-  // // text animation
-  // goodAnswerTl.fromTo(
-  //   '#accueil-question',
-  //   {
-  //     width: 0,
-  //   },
-  //   {
-  //     duration: 4,
-  //     scrambleText: {
-  //       text: 'FIN DE LA TRANSMISSION.',
-  //       chars: '0123456789',
-  //     },
-  //     width: $('#accueil-question').width(),
-  //     ease: SteppedEase.config(37),
-  //   }
-  // );
+  $('.cursor').empty();
+  const goodAnswerTl = new TimelineMax({});
+  // cursor animation
+  goodAnswerTl.fromTo(
+    '#accueil-logs1',
+    {
+      'border-right-color': 'rgba(255,255,255,1)',
+    },
+    {
+      'duration': 0.75,
+      'border-right-color': 'rgba(255,255,255,0)',
+      'repeat': -1,
+      'ease': SteppedEase.config(1),
+    }
+  );
+  // text animation
+  goodAnswerTl.fromTo(
+    '#accueil-logs1',
+    {
+      width: 0,
+    },
+    {
+      duration: 2,
+      scrambleText: {
+        text: "Content de voir que vous etes arrives jusqu'ici M. De Bontin",
+        chars: '0123456789',
+      },
+      width: $('#accueil-logs1').width(),
+      ease: SteppedEase.config(37),
+    }
+  );
+  // stop cursor
+  goodAnswerTl.set('#accueil-logs1', {
+    delay: 0.75,
+    border: 'none',
+  });
+  // cursor animation
+  goodAnswerTl.fromTo(
+    '#accueil-logs2',
+    {
+      'border-right-color': 'rgba(255,255,255,1)',
+    },
+    {
+      'duration': 0.75,
+      'border-right-color': 'rgba(255,255,255,0)',
+      'repeat': -1,
+      'ease': SteppedEase.config(1),
+    }
+  );
+  // text animation
+  goodAnswerTl.fromTo(
+    '#accueil-logs2',
+    {
+      width: 0,
+    },
+    {
+      duration: 2,
+      scrambleText: {
+        text: 'Vous trouverez sur ce site les donnees cryptees',
+        chars: '0123456789',
+      },
+      width: $('#accueil-logs2').width(),
+      ease: SteppedEase.config(37),
+    }
+  );
+  // stop cursor
+  goodAnswerTl.set('#accueil-logs2', {
+    delay: 0.75,
+    border: 'none',
+  });
+  // cursor animation
+  goodAnswerTl.fromTo(
+    '#accueil-logs3',
+    {
+      'border-right-color': 'rgba(255,255,255,1)',
+    },
+    {
+      'duration': 0.75,
+      'border-right-color': 'rgba(255,255,255,0)',
+      'repeat': -1,
+      'ease': SteppedEase.config(1),
+    }
+  );
+  // text animation
+  goodAnswerTl.fromTo(
+    '#accueil-logs3',
+    {
+      width: 0,
+    },
+    {
+      duration: 2,
+      scrambleText: {
+        text: 'La france a besoin de vous',
+        chars: '0123456789',
+      },
+      width: $('#accueil-logs3').width(),
+      ease: SteppedEase.config(37),
+    }
+  );
+  // stop cursor
+  goodAnswerTl.set('#accueil-logs3', {
+    delay: 0.75,
+    border: 'none',
+  });
+  // cursor animation
+  goodAnswerTl.fromTo(
+    '#accueil-title',
+    {
+      'border-right-color': 'rgba(255,255,255,1)',
+    },
+    {
+      'duration': 0.75,
+      'border-right-color': 'rgba(255,255,255,0)',
+      'repeat': -1,
+      'ease': SteppedEase.config(1),
+    }
+  );
+  // text animation
+  goodAnswerTl.fromTo(
+    '#accueil-title',
+    {
+      width: 0,
+    },
+    {
+      duration: 2,
+      scrambleText: {
+        text: 'Bonne chance',
+        chars: '0123456789',
+      },
+      width: $('#accueil-title').width(),
+      ease: SteppedEase.config(37),
+    }
+  );
+  // stop cursor
+  goodAnswerTl.set('#accueil-title', {
+    delay: 0.75,
+    border: 'none',
+  });
+  // text animation
+  goodAnswerTl.fromTo(
+    '#accueil-question',
+    {
+      width: 0,
+    },
+    {
+      duration: 4,
+      scrambleText: {
+        text: 'FIN DE LA TRANSMISSION.',
+        chars: '0123456789',
+      },
+      width: $('#accueil-question').width(),
+      ease: SteppedEase.config(37),
+    }
+  );
 }
